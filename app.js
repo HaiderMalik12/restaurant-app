@@ -5,10 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
+var mongoose = require('mongoose');
 
+var config= require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var orders =require('./routes/orders');
+
+//connect to the the db
+mongoose.connect(config.mongoUrl);
+
 var app = express();
 
 // view engine setup
